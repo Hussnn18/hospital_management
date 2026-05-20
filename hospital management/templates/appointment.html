@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Appointments</h3>
+
+<div class="card p-3 mb-4">
+<form method="POST">
+<div class="row g-2">
+    <div class="col"><input name="appointment_id" class="form-control" placeholder="ID" required></div>
+    <div class="col"><input type="date" name="appointment_date" class="form-control" required></div>
+    <div class="col"><input name="disease" class="form-control" placeholder="Disease"></div>
+    <div class="col"><input name="patient_id" class="form-control" placeholder="Patient ID"></div>
+    <div class="col"><input name="doctor_id" class="form-control" placeholder="Doctor ID"></div>
+    <div class="col"><button class="btn btn-primary w-100">Add</button></div>
+</div>
+</form>
+</div>
+
+<table class="table table-bordered table-striped">
+<tr>
+    <th>ID</th><th>Date</th><th>Disease</th><th>Patient</th><th>Doctor</th><th>Action</th>
+</tr>
+{% for a in appointments %}
+<tr>
+    <td>{{a.appointment_id}}</td>
+    <td>{{a.appointment_date}}</td>
+    <td>{{a.disease}}</td>
+    <td>{{a.patient}}</td>
+    <td>{{a.doctor}}</td>
+    <td>
+        <a href="/delete_appointment/{{a.appointment_id}}" class="btn btn-danger btn-sm"
+           onclick="return confirm('Delete appointment?')">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

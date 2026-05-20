@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="page-title">Patients</h1>
+
+<div class="form-card">
+<form method="POST">
+    <h5>Add New Patient</h5>
+    <div class="row g-3">
+        <div class="col-md-2"><input name="patient_id" class="form-control" placeholder="ID" required></div>
+        <div class="col-md-3"><input name="name" class="form-control" placeholder="Name" required></div>
+        <div class="col-md-2"><input name="age" class="form-control" placeholder="Age"></div>
+        <div class="col-md-2">
+            <select name="gender" class="form-control">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </div>
+        <div class="col-md-2"><input name="phone" class="form-control" placeholder="Phone"></div>
+        <div class="col-md-1"><button class="btn btn-primary w-100">Save</button></div>
+    </div>
+</form>
+</div>
+
+<div class="table-card">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Phone</th><th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for p in patients %}
+    <tr>
+        <td>{{p.patient_id}}</td>
+        <td>{{p.Name}}</td>
+        <td>{{p.Age}}</td>
+        <td>{{p.Gender}}</td>
+        <td>{{p.Phone}}</td>
+        <td>
+            <a href="/delete_patient/{{p.patient_id}}" class="btn btn-sm btn-outline-danger"
+               onclick="return confirm('Delete patient?')">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}

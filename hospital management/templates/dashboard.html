@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="page-title">Dashboard</h1>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="stat-card">
+            <h4>Patient Management</h4>
+            <p>View and manage patient records</p>
+            <a href="/patients">Open</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="stat-card">
+            <h4>Doctor Directory</h4>
+            <p>Manage doctor details</p>
+            <a href="/doctors">Open</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="stat-card">
+            <h4>Appointments</h4>
+            <p>Schedule and track visits</p>
+            <a href="/appointments">Open</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="stat-card">
+            <h4>Treatments</h4>
+            <p>Diagnosis and prescriptions</p>
+            <a href="/treatments">Open</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="stat-card">
+            <h4>Billing</h4>
+            <p>Patient billing and payments</p>
+            <a href="/bills">Open</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

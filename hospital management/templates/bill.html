@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Billing</h3>
+
+<div class="card p-3 mb-4">
+<form method="POST">
+<div class="row g-2">
+    <div class="col"><input name="bill_id" class="form-control" placeholder="ID" required></div>
+    <div class="col"><input name="amount" class="form-control" placeholder="Amount"></div>
+    <div class="col"><input type="date" name="bill_date" class="form-control"></div>
+    <div class="col"><input name="patient_id" class="form-control" placeholder="Patient ID"></div>
+    <div class="col"><button class="btn btn-primary w-100">Add</button></div>
+</div>
+</form>
+</div>
+
+<table class="table table-bordered table-striped">
+<tr>
+    <th>ID</th><th>Amount</th><th>Date</th><th>Patient</th><th>Action</th>
+</tr>
+{% for b in bills %}
+<tr>
+    <td>{{b.bill_id}}</td>
+    <td>{{b.amount}}</td>
+    <td>{{b.bill_date}}</td>
+    <td>{{b.patient}}</td>
+    <td>
+        <a href="/delete_bill/{{b.bill_id}}" class="btn btn-danger btn-sm"
+           onclick="return confirm('Delete bill?')">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}
